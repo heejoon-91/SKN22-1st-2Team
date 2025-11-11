@@ -5,7 +5,7 @@ Repository for SKN22-1st-2Team
 ## conda_env: grilled_kim
 ## Database: MySQL: Database 생성 후 수정 예정
 
-# 전기차 충전소 통함 정보 시스템
+# 전기차 충전소 통합 정보 시스템
  - 공공 API를 활용한 전기차 충전소 통합 정보 시스템
     1. 충전소 검색기능
         - 주소 검색 기반으로 충전소 목록 조회, 지역별 충전소 개수, 급속/완속 비율 등 차트 표현
