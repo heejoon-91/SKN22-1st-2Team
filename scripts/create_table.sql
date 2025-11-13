@@ -139,3 +139,4 @@ INSERT INTO charger_meta VALUES
 ('08', 'DC콤보(완속)'),
 ('09', 'NACS'),
 ('10', 'DC콤보+NACS');
+
