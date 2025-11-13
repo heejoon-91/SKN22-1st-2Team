@@ -1,5 +1,6 @@
 # scripts/update_data.py
 import os
+import traceback
 import requests
 from dotenv import load_dotenv
 
@@ -15,9 +16,13 @@ class EVChargerAPI:
     def _get(self, endpoint: str, params: dict):
         """공통 GET 요청 처리"""
         params["serviceKey"] = self.api_key
-        response = requests.get(f"{self.base_url}/{endpoint}", params=params)
-        response.raise_for_status()
-        return response.json()  # dataType=JSON인 경우
+        try:
+            response = requests.get(f"{self.base_url}/{endpoint}", params=params)
+            response.raise_for_status()
+            return response.json()['items']
+        except Exception as e:
+            print(e)
+            print(traceback.format_exception)
 
     def get_charger_info(self, sta_id: str = "", chger_id: str = ""):
         """충전기 정보 조회"""
@@ -52,8 +57,8 @@ if __name__ == "__main__":
     api = EVChargerAPI()
 
     # 테스트용
-    # sta_id = "28260005"
-    # chger_id = "O2"
+    sta_id = "28260005"
+    chger_id = "O2"
     sta_id = ""
     chger_id = ""
 
