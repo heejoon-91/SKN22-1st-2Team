@@ -20,7 +20,7 @@ def save_station(station:Charger_station):
                 %s, %s, %s, %s, %s,
                 %s, %s, %s, %s,
                 %s, %s, %s, %s, %s,
-                %s, %s, %s, %s
+                %s, %s, %s, %s, %s
             )
             ON DUPLICATE KEY UPDATE
                 use_time     = %s,
@@ -104,7 +104,14 @@ def save_charger_status(charger_status: Charger_status):
                     upd_dt      = NOW()
             """
 
-            params = (*charger_status, *charger_status[3:9])
+            params = (*charger_status.as_tuple, 
+                    charger_status.stat,
+                    charger_status.stat_upd_dt,
+                    charger_status.last_tsdt,
+                    charger_status.last_tedt,
+                    charger_status.now_tsdt,
+                    charger_status.reg_dt
+                      )
             try:
                 cursor.execute(sql, params)
                 conn.commit()
