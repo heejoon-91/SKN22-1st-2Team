@@ -1,12 +1,3 @@
----
-name: Custom issue template
-about: Describe this issue template's purpose here.
-title: ''
-labels: ''
-assignees: ''
-
----
-
 ## 🌈 Success criteria
 <!-- 요구사항을 상세히 설명해주세요. 글/사진/그림(흐름도) 모두 사용해봅시다.  -->
 1.  
