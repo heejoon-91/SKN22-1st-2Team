@@ -142,7 +142,10 @@ Repository for SKN22-1st-2Team
     └── 📄 create_table.sql              💬 데이터 테이블 생성 
 
 ```
-    
+
+ # ERD
+ <img width="2813" height="5090" alt="image" src="https://github.com/user-attachments/assets/de4bda25-10bc-4282-a4b0-7566730860fc" />
+
 
 <img width="1900" height="2140" alt="Untitled diagram-2025-11-16-132038" src="https://github.com/user-attachments/assets/6a39534d-ebb9-48ca-b56d-1cec09c198d2" />
 
