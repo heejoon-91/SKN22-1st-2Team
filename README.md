@@ -43,6 +43,8 @@ Repository for SKN22-1st-2Team
 - 지도 기반 경로 위 충전소 필터링
 
 ---
+# 팀원 소개
+<img width="1182" height="627" alt="image" src="https://github.com/user-attachments/assets/05e6690c-c0f8-4e63-85ba-1853e9383c92" />
 
 # 🧠 시스템 아키텍처
 ```plaintext
