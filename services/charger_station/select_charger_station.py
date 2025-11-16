@@ -13,10 +13,14 @@ def select_charger_station(id: str = "") -> Optional[list]:
               from charger_station
 """
             if id != "":
-                sql += "where station_id = " + id
-
+                sql += "where station_id = %s"
+            print("-" * 100)
+            print(sql)
             try:
-                cursor.execute(sql)
+                if id == "":
+                    cursor.execute(sql)
+                else:
+                    cursor.execute(sql, (id,))
                 datas = cursor.fetchall()
                 stations = []
                 for data in datas:
@@ -57,7 +61,8 @@ def select_charger_station_location(lat: float, lng: float) -> Optional[list]:
                 print(e)
                 print(traceback.format_exception)
 
-def select_all_charger_station() :
+
+def select_all_charger_station():
     with get_connection() as conn:
         with conn.cursor() as cursor:
             sql = """

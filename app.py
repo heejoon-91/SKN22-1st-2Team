@@ -7,6 +7,7 @@ import layout
 import pandas as pd
 from streamlit_folium import st_folium
 import folium
+import json
 
 # 현위치
 from streamlit_js_eval import get_geolocation
@@ -53,10 +54,11 @@ if loc:
 
     # 충전소 마커 표시
     for c in charger_data:
+        
         folium.Marker(
             [c["lat"], c["lng"]],
-            # popup=f"🔋 {c['name']}<br>상세보기 클릭!",
-            tooltip=c["station_id"],
+            popup=c["station_id"],
+            tooltip=f"🔋 {c['station_name']}",
             icon=folium.Icon(color="blue", icon="bolt"),
         ).add_to(m)
 
@@ -67,15 +69,15 @@ if loc:
     if st_data and st_data["last_object_clicked"]:
         lat = st_data["last_object_clicked"]["lat"]
         lon = st_data["last_object_clicked"]["lng"]
-        station_id = str(st_data["last_object_clicked_tooltip"])
-        data = select_charger_station(station_id)
-        one_data = [asdict(d) for d in datas or []]
-        print("-" * 100)
-        print(one_data)
+        
+        station_id = st_data["last_object_clicked_popup"]
+        one_data_list = [asdict(d) for d in select_charger_station(station_id) or []]
+        data = one_data_list[0]
         st.success(
-            f"""{station_id}, 
-                   
-                   """
+f"""{data["station_name"]}, {data["use_time"]} \n
+{data["addr"]} {data["location"]} \n
+{data["limit_detail"]}     
+"""
         )
         # 예: DB나 API를 이용한 충전소 상세조회
         st.write(
