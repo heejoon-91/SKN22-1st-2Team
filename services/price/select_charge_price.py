@@ -25,7 +25,7 @@ def select_charger_price(operator_code: str = ""):
                 print(e)
                 print(traceback.format_exception)
 
-def select_charger_price():
+def select_all_charger_price():
     with get_connection() as conn:
         with conn.cursor() as cursor:
             sql = """

@@ -28,7 +28,7 @@ def get_all_data_to_excel():
     charger_station=select_charger_station.select_all_charger_station()
     charger_detail=select_charger_detail.select_all_charger_detail()
     charger_status=select_charger_status.select_all_charger_status()
-    charger_price=select_charge_price.select_charger_price()
+    charger_price=select_charge_price.select_all_charger_price()
 
     save_all_to_excel(charger_station,charger_detail,charger_status,charger_price)
 
